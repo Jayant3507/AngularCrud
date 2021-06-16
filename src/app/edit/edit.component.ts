@@ -14,7 +14,7 @@ export class EditComponent implements OnInit {
 
   ngOnInit(): void {
     this.editForm = this.fb.group({
-      id: [],
+      id:[],
       name:[],
       price: []
     })
@@ -24,9 +24,9 @@ export class EditComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log("submitclick....");
+
     this.ss.update(this.ar.snapshot.params.id,this.editForm.value).subscribe(drr=>{
-      this.router.navigateByUrl('/crud');
+       this.router.navigateByUrl('/products');
        console.log("update",drr);
     })
   }

@@ -24,7 +24,7 @@ export class AddComponent implements OnInit {
 
   onSubmit(){
     this.ss.save(this.editForm.value).subscribe(drr=>{
-      this.router.navigateByUrl('/crud');
+      this.router.navigateByUrl('/products');
        console.log("Save",drr);
     })
   }

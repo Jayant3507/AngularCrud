@@ -1,9 +1,8 @@
 <div class="container mt-2">
 <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="exampleInputEmail1">Id</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Id" formControlName="id">
-    </div>
+  
+      <input type="hidden" formControlName="id">
+   
 
     <div class="form-group">
       <label for="exampleInputPassword1">Name</label>

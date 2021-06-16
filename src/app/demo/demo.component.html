@@ -17,7 +17,7 @@
         <td>{{pd.name}}</td>
         <td>{{pd.price}}</td>
         <td><a class="btn btn-primary btn-sm" [routerLink]="['/edit',pd.id]">Edit</a></td>
-        <td><button class="btn btn-success btn-sm" (click)="delete(pd.id)">Delete</button></td>
+        <td><button class="btn btn-danger btn-sm" (click)="delete(pd.id)">Delete</button></td>
       </tr>
     </tbody>
   </table>
