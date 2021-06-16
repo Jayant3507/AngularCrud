@@ -1,0 +1,55 @@
+<div class="container pt-4">
+  <div class="row">
+    <div class="col-md-3 mb-3">
+      <div class="card mb-3" *ngFor="let hh of totalData">
+        <div class="card-body">
+          <p>Confirm Cases {{ hh.confirmed }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card mb-3">
+        <div class="card-body"></div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card mb-3">
+        <div class="card-body"></div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card mb-3">
+        <div class="card-body"></div>
+      </div>
+    </div>
+
+    <!-- <div class="col-md-4 mb-3" *ngFor="let cd of covidData">
+    <div class="card mb-3" *ngFor="let statedt of cd.districtData">
+      <div class="card-body">
+         <p>Confirm Cases {{cd.confirmed}}</p>
+         <p>District Name {{statedt.name}}</p>
+      </div>
+    </div>
+  </div> -->
+  </div>
+
+  <table class="table table-striped mt-4">
+    <thead>
+      <tr>
+        <th scope="col">State</th>
+        <th scope="col">Active Case</th>
+        <th scope="col">District</th>
+        <th scope="col">Confirmed Cases</th>
+      </tr>
+    </thead>
+    <!-- <tbody>
+      <tr *ngFor="let df of cvd.districtData | paginate:{ itemsPerPage: 5, currentPage: p} let i = index;">   
+        <td>{{df.name}}</td>
+        <td>{{df.confirmed}}</td>
+      </tr>
+    </tbody> -->
+  </table>
+</div>

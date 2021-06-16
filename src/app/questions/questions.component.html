@@ -1,0 +1,68 @@
+<div class="container">
+  <h1 #ch class="text-center mt-3">Featured</h1>
+  <hr />
+  <div
+    class="row mb-3"
+    *ngFor="
+      let qus of questions | paginate: { itemsPerPage: 4, currentPage: p }
+    "
+  >
+    <div class="col-md-2">
+      <div class="card-group">
+        <div class="card">
+          <div class="card-body text-center hover-1">
+            <h5 class="card-title">{{ qus.answer_count }}</h5>
+            <h4 class="card-title">Votes</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="card-group">
+        <div class="card">
+          <div class="card-body text-center hover-2 borderg">
+            <h5 class="card-title">{{ qus.answer_count }}</h5>
+            <h4 class="card-title">Ans</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 bg-blue-300 hover:bg-indigo-600">
+      <div class="card-group">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">{{ qus.view_count }}</h5>
+            <h4 class="card-title">Views</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <span class="badge badge-warning">50+</span>
+      <span>&nbsp;{{ qus.title }}</span>
+      <div class="mt-4">
+        <h5 class="badge badge-info mr-2">{{ qus.tags[0] }}</h5>
+        <h5 class="badge badge-primary mr-2">{{ qus.tags[1] }}</h5>
+        <h5 class="badge badge-success mr-4">{{ qus.tags[2] }}</h5>
+        <a [routerLink]="['/profile', qus.id]"> {{ qus.owner.display_name }}</a>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+  <!--spinner-->
+  <ngx-spinner
+    bdColor="rgba(51, 51, 51, 0.8)"
+    size="default"
+    type="ball-pulse"
+    color="#a167c9"
+  >
+  </ngx-spinner>
+  <!--spinner-->
+
+  <pagination-controls class="text-center" (pageChange)="p = $event">
+  </pagination-controls>
+</div>

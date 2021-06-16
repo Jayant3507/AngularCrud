@@ -1,0 +1,19 @@
+
+<p>common works!</p>
+<div class="container">
+     <h3 *ngFor="let ct for categories">
+         <span class="badge badge-secondary" (click)="onNoClick()">{{ct.value}}</span>
+     </h3>
+
+     <h3>Today's Date Raw : {{todaysDate}}</h3>
+     <h3>Today's Date Default : {{todaysDate | date}}</h3>
+     <h3>Today's Date short : {{todaysDate | date:'short'}}</h3>
+     <h3>Today's Date Medium : {{todaysDate | date:'medium'}}</h3>
+     <h3>Today's Date Long : {{todaysDate | date:'long'}}</h3>
+     <h3>Amount: {{ value | currency :'INR'}}</h3>
+
+      <div class="acc" *ngFor="let it of values">
+         <p>{{it.id}}</p>
+         <p>{{it.name}}</p>
+     </div>   
+</div>

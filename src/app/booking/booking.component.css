@@ -1,0 +1,12 @@
+table tbody:hover{
+  background-color: orange; 
+}
+
+table tbody:hover{
+    color: black;
+}
+
+.table tr.active td {
+  background-color:#123456 !important;
+  color: white;
+}

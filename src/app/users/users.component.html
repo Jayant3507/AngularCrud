@@ -1,0 +1,164 @@
+  <div class="container">
+    <!-- <div class="sidenav text-white mt-5">        
+       <h3 class="text-center">List Progress</h3>
+       <div class="mb-2">
+        <progressbar [value]="55" [striped]="true" [animate]="true"></progressbar>
+      </div>
+
+       <ul class="list-unstyled text-center">
+           <li>Female Uesrs</li>
+           <li>5</li>
+       </ul>
+
+       <ul class="list-unstyled text-center">
+        <li>male Uesrs</li>
+        <li>8</li>
+    </ul>
+</div> -->
+
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <h3 class="text-center text-white">List Progress</h3>
+                <div class="mb-2">
+                    <progressbar [value]="value" [striped]="true"></progressbar>
+                </div>
+
+                <ul class="list-unstyled text-center text-white">
+                    <li>Female Uesrs</li>
+                    <li>5</li>
+                </ul>
+
+                <ul class="list-unstyled text-center text-white">
+                    <li>male Uesrs</li>
+                    <li>8</li>
+                </ul>
+
+            </ul>
+        </div>
+
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <a href="#menu-toggle" class="btn btn-primary btn-sm" id="menu-toggle">Toggle Menu</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-6 card">
+            <h2>Add New User</h2>
+            <form [formGroup]="addUserForm">
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Full Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" formControlName="fullname" name="fullname"
+                            id="inputEmail3" autocomplete="off" #fullname>
+                    </div>
+                </div>
+
+                
+                <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">DOB</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" formControlName="dob" id="inputPassword3"
+                            autocomplete="off" bsDatepicker #dob>
+                    </div>
+                </div>
+
+                <ejs-multiselect id='localData' #languages formControlName="languages" #local [dataSource]='countries'
+                    [fields]='localFields' [placeholder]='localWaterMark'> 
+                </ejs-multiselect>
+
+                <!-- <fieldset class="form-group">
+                    <div class="row">
+                        <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+                        <div class="col-sm-10">
+                            <div class="form-check form-check-inline" *ngFor="let gd of genders">
+                                <input class="form-check-input" 
+                                type="radio" 
+                                name="gender" 
+                                id="gridRadios1" 
+                                value="{{genders}}"
+                                (change)="radioChangeHandler($event)" 
+                                #gender 
+                                formControlName="gender">
+                                <label class="form-check-label" for="gridRadios1">
+                                    {{genders}}
+                                </label>
+                            </div>
+
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" value="female"
+                                    id="gridRadios2" value="female" #gender formControlName="gender">
+                                <label class="form-check-label" for="gridRadios2">
+                                    Female
+                                </label>
+                            </div>
+
+                            <p><span>You Selected: </span><b>{{SelectedGender}}</b></p>
+                        </div>
+                    </div>
+                </fieldset> -->
+
+                <article>
+                    <label class="col-form-label col-sm-2 pt-0">Gender </label>
+                     <!-- <div class="form-check form-check-inline" *ngFor="let day of days">
+                        <input
+                        type="radio"
+                        name="gender"
+                        value="{{day}}"
+                        #gender
+                        formControlName="gender"
+                        (change)="radioChangeHandler($event)">
+                        <i>{{day}}</i>
+                     </div> -->
+                     <div class="form-check form-check-inline">
+                        <input type="radio" value="male" formControlName="gender">&nbsp; Male &nbsp;
+                        &nbsp;<input type="radio" value="female" formControlName="gender">&nbsp; Female&nbsp;
+                    </div>
+                    <p><b>{{addUserForm.value | json}}</b></p>
+                    <p><b>{{addUserForm.value}}</b></p>
+                </article>
+               
+                <div class="form-group">
+                    <label for="about" class="col-form-label">About</label>
+                    <textarea class="form-control" id="about" rows="3" formControlName="about"></textarea>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <button type="submit" (click)="onAddUser(fullname,dob,languages,gender)"
+                            class="btn btn-primary btn-sm">Save User</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <div class="col-md-6">
+            <h2>List Of Users</h2>
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Birth Date</th>
+                        <th scope="col">Languages</th>
+                        <th scope="col">Gender</th>
+                    </tr>
+                </thead>
+
+                <tbody *ngFor="let luser of listuser">
+                    <tr>
+                        <td>{{luser.fullname}}</td>
+                        <td>{{luser.dob}}</td>
+                        <td>{{luser.languages}}</td>
+                        <td>{{luser.gender}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

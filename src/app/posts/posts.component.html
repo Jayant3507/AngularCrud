@@ -1,0 +1,43 @@
+
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-md-6">
+   <form #postForm="ngForm" (ngSubmit)="onCreatePosts(postForm.value)">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Title</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ngModel
+      name="title" autocomplete="off">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Content</label>
+      <input type="text" class="form-control" id="exampleInputPassword1" ngModel
+      name="content" autocomplete="off">
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-sm mr-2">Submit</button>  
+  </form>
+  </div>
+
+  <div class="col-md-6">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Content</th>
+          </tr>
+        </thead>
+
+        <tbody *ngFor="let post of loadedPosts;let i= index">
+          <tr>
+            <th *ngIf="loadedPosts.length < 1">No post available</th>
+            <th scope="row">{{ i+1 }}</th>
+            <td>{{post.title}}</td>
+            <td>{{post.content}}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
+</div>

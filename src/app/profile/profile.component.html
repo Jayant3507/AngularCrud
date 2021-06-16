@@ -1,0 +1,84 @@
+<div class="container" *ngFor="let prof of profiles">
+  <div class="row">
+    <div class="card mt-3">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img [src]="prof.profile_image" class="card-img" alt="..." />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <p>{{ prof.reputation }} Reputation</p>
+            <h5 class="badge badge-info mr-2">
+              {{ prof.badge_counts.bronze }}
+            </h5>
+            <h5 class="badge badge-info mr-2">
+              {{ prof.badge_counts.silver }}
+            </h5>
+            <h5 class="badge badge-info mr-2">{{ prof.badge_counts.gold }}</h5>
+            <h5 class="card-title">{{ prof.display_name }}</h5>
+            <p class="card-text">{{ prof.location }}</p>
+            <a href=""
+              ><p class="card-text">
+                <small class="text-muted">{{ prof.website_url }}</small>
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+
+  <div class="row mb-3" *ngFor="let qus of questions">
+    <div class="col-md-2">
+      <div class="card-group">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">{{ qus.answer_count }}</h5>
+            <h4 class="card-title">Votes</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="card-group">
+        <div class="card" style="border: 1px solid green">
+          <div class="card-body text-center text-success">
+            <h5 class="card-title">{{ qus.answer_count }}</h5>
+            <h4 class="card-title">Ans</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="card-group">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">{{ qus.view_count }}</h5>
+            <h4 class="card-title">Views</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <span class="badge badge-warning">50+</span>
+      <!--question title-->
+      <span>&nbsp;{{ qus.title }}&nbsp;</span>
+      <div class="mt-4">
+        <h5 class="badge badge-info mr-2">{{ qus.tags[0] }}</h5>
+        <h5 class="badge badge-primary mr-2">{{ qus.tags[1] }}</h5>
+        <h5 class="badge badge-success mr-4">{{ qus.tags[2] }}</h5>
+        <a href=""></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--spinner-->
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-pulse">
+</ngx-spinner>
+
+<!--spinner-->
